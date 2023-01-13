@@ -1,4 +1,4 @@
-## Capstone Project 3 - Task Manager (Django) <a href="https://bit.ly/3X0tqPQ" target="_blank">:arrow_right: Preview</a>  
+## Capstone Project 3 - Task Manager (Django) <a href="https://6gg9.short.gy/jRMugp" target="_blank">:arrow_right: Preview</a>  
 
 ### Introduction 
 

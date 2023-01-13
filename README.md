@@ -5,7 +5,7 @@
 This task management application was built using the **Django framework**. It allows users to log in, register new users, add tasks, and view a list of tasks. and generate reports on tasks. It also includes a feature that displays a random quote from Zen on the homepage.
 
 <p align="center"><img src="capstone_project/assets/images/01.png" width="600"><br>
-*3.1 The overview of Task Manager*</p>
+<i>3.1 The overview of Task Manager</i></p>
 
 ### Getting Started
 
@@ -139,7 +139,7 @@ The **task_id** field is set as the **primary key**, which means that it is uniq
 The user is required to enter a **username** and **password**. If the user enters an invalid username or password, an error message will be displayed and the user will be prompted to try again.
 
 <p align="center"><img src="capstone_project/assets/images/02.png" width="600"><br>
-*3.2 Login screen*</p>
+<i>3.2 Login screen</i></p>
 
 > Note: The test accounts are used for testing purposes
 
@@ -148,63 +148,63 @@ The user is required to enter a **username** and **password**. If the user enter
 After the user logs in successfully, he can access the User section and list the users.
 
 <p align="center"><img src="capstone_project/assets/images/03.png" width="600"><br>
-*3.3 List of Users*</p>
+<i>3.3 List of Users</i></p>
 
 Only the user with the username **admin is allowed to register new users**. The user will be prompted to enter a new username and password. The user will also be asked to confirm the password. If the value entered to confirm the password matches the value of the password, the username and password will be stored in the **TaskUser** table.
 
 <p align="center"><img src="capstone_project/assets/images/04.png" width="600"><br>
-*3.4 Register User*</p>
+<i>3.4 Register User</i></p>
 
 <p align="center"><img src="capstone_project/assets/images/05.png" width="600"><br>
-*3.5 Register User* screen</p>
+<i>3.5 Register User* screen</i></p>
 
 <p align="center"><img src="capstone_project/assets/images/06.png" width="600"><br>
-*3.6 A new user is registered successfully*</p>
+<i>3.6 A new user is registered successfully</i></p>
 
 #### Task
 
 The user can also access the **Task** section to perform the functions of **adding and editing tasks**.
 
 <p align="center"><img src="capstone_project/assets/images/07.png" width="600"><br>
-*3.7 List of tasks*</p>
+<i>3.7 List of tasks</i></p>
 
 <p align="center"><img src="capstone_project/assets/images/08.png" width="600"><br>
-*3.8 List of tasks (View Mine)*</p>
+<i>3.8 List of tasks (View Mine)</i></p>
 
 <p align="center"><img src="capstone_project/assets/images/09.png" width="600"><br>
-*3.9 List of tasks (View All)*</p>
+<i>3.9 List of tasks (View All)</i></p>
 
 The user selects the username of the **person** the task is **assigned** to and enters the **title** of the task, a **description** of the task, and the **due date** of the task. The task will be added to the **Task** table.
 
 <p align="center"><img src="capstone_project/assets/images/10.png" width="600"><br>
-*3.10 Add Task*</p>
+<i>3.10 Add Task</i></p>
 
 <p align="center"><img src="capstone_project/assets/images/11.png" width="600"><br>
-*3.11 Add Task screen*</p>
+<i>3.11 Add Task screen</i></p>
     
 <p align="center"><img src="capstone_project/assets/images/12.png" width="600"><br>
-*3.12 A new task is added successfully*</p>
+<i>3.12 A new task is added successfully</i></p>
 
 The user can choose **edit task** or **mark the task as complete**. 
 
 ##### Edit Task
 
 <p align="center"><img src="capstone_project/assets/images/13.png" width="600"><br>
-*3.13 **Edit Task** button*</p>
+<i>3.13 **Edit Task** button</i></p>
 
 <p align="center"><img src="capstone_project/assets/images/14.png" width="600"><br>
-*3.14 Edit Task screen*</p>
+<i>3.14 Edit Task screen</i></p>
 
 <p align="center"><img src="capstone_project/assets/images/15.png" width="600"><br>
-*3.15 The task is updated successfully.*</p>
+<i>3.15 The task is updated successfully.</i></p>
 
 ##### Mark Complete
 
 <p align="center"><img src="capstone_project/assets/images/16.png" width="600"><br>
-*3.16 Mark Complete button*</p>
+<i>3.16 Mark Complete button</i></p>
 
 <p align="center"><img src="capstone_project/assets/images/17.png" width="600"><br>
-*3.17 The task is marked as complete successfully*</p>
+<i>3.17 The task is marked as complete successfully</i></p>
 
 **Points to note**
 
@@ -217,28 +217,28 @@ The user can choose **edit task** or **mark the task as complete**.
 In the **Report** section, the username **admin** can view the **statistics** of user overview and task overview, as well as print these **reports**.
 
 <p align="center"><img src="capstone_project/assets/images/18.png" width="600"><br>
-*3.18 The statistics of user overview and task overview are shown on Task Manager Report*</p>
+<i>3.18 The statistics of user overview and task overview are shown on Task Manager Report</i></p>
 
 <p align="center"><img src="capstone_project/assets/images/19.png" width="600"><br>
-*3.19 Printable version of Task Manager Report* </p>
+<i>3.19 Printable version of Task Manager Report* </i></p>
 
 > Note: The "Report" section will be displayed only for the admin user.
 
 <p align="center"><img src="capstone_project/assets/images/20.png" width="600"><br>
-*3.20 The "Report" section is not shown as the general users log in.*</p>
+<i>3.20 The "Report" section is not shown as the general users log in.</i></p>
 
 <p align="center"><img src="capstone_project/assets/images/21.png" width="600"><br>
-*3.21 The "Register User" button is not shown as the general users log in.*</p>
+<i>3.21 The "Register User" button is not shown as the general users log in.</i></p>
 
 #### Quote
 
 When the user clicks the **Hey** button, it generates a new quote on the homepage of **Task Manager**
 
 <p align="center"><img src="capstone_project/assets/images/22.png" width="600"><br>
-*3.22 The default message on the homepage of Task Manager*</p>
+<i>3.22 The default message on the homepage of Task Manager</i></p>
 
 <p align="center"><img src="capstone_project/assets/images/23.png" width="600"><br>
-*3.23 The quote is generated after clicking the "Hey" button*</p>
+<i>3.23 The quote is generated after clicking the "Hey" button</i></p>
 
 ### Known Issue
 

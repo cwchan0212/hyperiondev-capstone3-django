@@ -21,10 +21,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 #### Installation
 
-I recommend you follow the 
-<a href="https://docs.djangoproject.com/en/4.1/intro/tutorial01/">Django's tutorial</a> to start your project and application first and then take my repository as your reference.
+I recommend you follow <a href="https://docs.djangoproject.com/en/4.1/intro/tutorial01/">Django's tutorial</a> to start your project and application first and then take my repository as your reference.
 
-1. **Install** Python, Django and required packages in your local machine. Follow the introductions to install <Python href="https://www.python.org/" target="_blank">Python</a>
+1. **Install** Python, Django and the required packages on your local machine. Follow the introductions to install <Python href="https://www.python.org/" target="_blank">Python</a>
 
 ```
 pip install django
@@ -39,6 +38,7 @@ django-admin startproject capstone_project
 ```
 
 3. **Start** a development server to see the Django function properly
+
 ```
 python manage.py runserver
 ```
@@ -64,7 +64,7 @@ git clone https://github.com/cwchan0212/hyperiondev-capstone3-django.git
 cd capstone_project
 ```
 
-> Note: The issue of **static** directry is solved in my **etting_sample.py**.
+> Note: The issue of **static** directory is solved in my **setting_sample.py**.
 
 ### File Structure
 ```

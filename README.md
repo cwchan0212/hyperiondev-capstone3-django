@@ -17,36 +17,61 @@ These instructions will get you a copy of the project up and running on your loc
 - **Django** 4.1 or later
 - Additional packages: django-session-timeout, requests, pytz
 
+
+
 #### Installation
 
-1. **Clone** the repository:
-```
-git clone https://github.com/cwchan0212/hyperiondev-capstone3-django.git
-```
-2. **Navigate** to the project directory:
-```
-cd capstone_project
-```
+I recommend you follow the 
+<a href="https://docs.djangoproject.com/en/4.1/intro/tutorial01/">Django's tutorial</a> to start your project and application first and then take my repository as your reference.
 
-3. **Install** the required packages:
+1. **Install** Python, Django and required packages in your local machine. Follow the introductions to install <Python href="https://www.python.org/" target="_blank">Python</a>
+
 ```
+pip install django
 pip install django-session-timeout
 pip install requests
 pip install pytz
 ```
+2. **Create** a Django project
 
-4. **Apply** the migrations:
+```
+django-admin startproject capstone_project
+```
+
+3. **Start** a development server to see the Django function properly
+```
+python manage.py runserver
+```
+
+4. **Create** an application **task_manager**
+```
+python manage.py startapp task_manager
+```
+
+5. **Apply** the migrations to build up models
 ```
 python manage.py makemigrations
 python manage.py migrate
 ```
+
+6.  **Clone** the repository for your reference
+```
+git clone https://github.com/cwchan0212/hyperiondev-capstone3-django.git
+```
+
+7. **Navigate** to the project directory and copy the files according to the following file structures. Take a reference to **my settings_sample.py** for your **settings.py** and rename **views_sample.py** to **views.py**.
+```
+cd capstone_project
+```
+
+> Note: The issue of **static** directry is solved in my **etting_sample.py**.
 
 ### File Structure
 ```
 capstone_project/
 ├─ capstone_project/
 │  ├─ asgi.py
-│  ├─ settings.py
+│  ├─ settings.py *
 │  ├─ urls.py
 │  ├─ wsgi.py
 │  ├─ __init__.py
@@ -89,11 +114,13 @@ capstone_project/
 │  ├─ models.py
 │  ├─ tests.py
 │  ├─ urls.py
-│  ├─ views.py
+│  ├─ views.py *
 │  ├─ __init__.py
 ├─ db.sqlite3
 ├─ manage.py
 ```
+
+> Note: *I rename the **views.py** and **settings.py** to **views_sample.py** and **settings.py_sample** for your reference. I remove the unused views and route from views.py. As for settings.py, it is different from the Django server. Once you start your project, it will generate a **Secret Key** into the settings.py. Please keep it **secret**. 
 
 ### Model
 
@@ -266,7 +293,3 @@ Please make sure to include this **meta** tag in the head of your HTML file to p
 
 ### Acknowledgments
 This project was inspired by <a href="https://www.hyperiondev.com" target="_blank">HyperionDev</a>.
-
-
-
-

@@ -4,7 +4,7 @@
 
 This task management application was built using the **Django framework**. It allows users to log in, register new users, add tasks, and view a list of tasks. and generate reports on tasks. It also includes a feature that displays a random quote from Zen on the homepage.
 
-<p align="center"><img src="./assets/images/01.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/01.png" width="600"><br>
 *3.1 The overview of Task Manager*</p>
 
 ### Getting Started
@@ -138,7 +138,7 @@ The **task_id** field is set as the **primary key**, which means that it is uniq
 
 The user is required to enter a **username** and **password**. If the user enters an invalid username or password, an error message will be displayed and the user will be prompted to try again.
 
-<p align="center"><img src="./assets/images/02.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/02.png" width="600"><br>
 *3.2 Login screen*</p>
 
 > Note: The test accounts are used for testing purposes
@@ -147,63 +147,63 @@ The user is required to enter a **username** and **password**. If the user enter
 
 After the user logs in successfully, he can access the User section and list the users.
 
-<p align="center"><img src="./assets/images/03.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/03.png" width="600"><br>
 *3.3 List of Users*</p>
 
 Only the user with the username **admin is allowed to register new users**. The user will be prompted to enter a new username and password. The user will also be asked to confirm the password. If the value entered to confirm the password matches the value of the password, the username and password will be stored in the **TaskUser** table.
 
-<p align="center"><img src="./assets/images/04.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/04.png" width="600"><br>
 *3.4 Register User*</p>
 
-<p align="center"><img src="./assets/images/05.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/05.png" width="600"><br>
 *3.5 Register User* screen</p>
 
-<p align="center"><img src="./assets/images/06.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/06.png" width="600"><br>
 *3.6 A new user is registered successfully*</p>
 
 #### Task
 
 The user can also access the **Task** section to perform the functions of **adding and editing tasks**.
 
-<p align="center"><img src="./assets/images/07.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/07.png" width="600"><br>
 *3.7 List of tasks*</p>
 
-<p align="center"><img src="./assets/images/08.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/08.png" width="600"><br>
 *3.8 List of tasks (View Mine)*</p>
 
-<p align="center"><img src="./assets/images/09.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/09.png" width="600"><br>
 *3.9 List of tasks (View All)*</p>
 
 The user selects the username of the **person** the task is **assigned** to and enters the **title** of the task, a **description** of the task, and the **due date** of the task. The task will be added to the **Task** table.
 
-<p align="center"><img src="./assets/images/10.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/10.png" width="600"><br>
 *3.10 Add Task*</p>
 
-<p align="center"><img src="./assets/images/11.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/11.png" width="600"><br>
 *3.11 Add Task screen*</p>
     
-<p align="center"><img src="./assets/images/12.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/12.png" width="600"><br>
 *3.12 A new task is added successfully*</p>
 
 The user can choose **edit task** or **mark the task as complete**. 
 
 ##### Edit Task
 
-<p align="center"><img src="./assets/images/13.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/13.png" width="600"><br>
 *3.13 **Edit Task** button*</p>
 
-<p align="center"><img src="./assets/images/14.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/14.png" width="600"><br>
 *3.14 Edit Task screen*</p>
 
-<p align="center"><img src="./assets/images/15.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/15.png" width="600"><br>
 *3.15 The task is updated successfully.*</p>
 
 ##### Mark Complete
 
-<p align="center"><img src="./assets/images/16.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/16.png" width="600"><br>
 *3.16 Mark Complete button*</p>
 
-<p align="center"><img src="./assets/images/17.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/17.png" width="600"><br>
 *3.17 The task is marked as complete successfully*</p>
 
 **Points to note**
@@ -216,28 +216,28 @@ The user can choose **edit task** or **mark the task as complete**.
 
 In the **Report** section, the username **admin** can view the **statistics** of user overview and task overview, as well as print these **reports**.
 
-<p align="center"><img src="./assets/images/18.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/18.png" width="600"><br>
 *3.18 The statistics of user overview and task overview are shown on Task Manager Report*</p>
 
-<p align="center"><img src="./assets/images/19.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/19.png" width="600"><br>
 *3.19 Printable version of Task Manager Report* </p>
 
 > Note: The "Report" section will be displayed only for the admin user.
 
-<p align="center"><img src="./assets/images/20.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/20.png" width="600"><br>
 *3.20 The "Report" section is not shown as the general users log in.*</p>
 
-<p align="center"><img src="./assets/images/21.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/21.png" width="600"><br>
 *3.21 The "Register User" button is not shown as the general users log in.*</p>
 
 #### Quote
 
 When the user clicks the **Hey** button, it generates a new quote on the homepage of **Task Manager**
 
-<p align="center"><img src="./assets/images/22.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/22.png" width="600"><br>
 *3.22 The default message on the homepage of Task Manager*</p>
 
-<p align="center"><img src="./assets/images/23.png" width="600"><br>
+<p align="center"><img src="capstone_project/images/23.png" width="600"><br>
 *3.23 The quote is generated after clicking the "Hey" button*</p>
 
 ### Known Issue

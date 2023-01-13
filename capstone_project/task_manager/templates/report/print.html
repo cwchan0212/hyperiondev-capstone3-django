@@ -1,0 +1,130 @@
+{% load static %} 
+{% load task_manager_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <title>Task Manager > Report > Preview</title>
+        <link rel="stylesheet" href="{% static 'css/' %}Banner-Heading-Image-images.css" />
+        <link rel="stylesheet" href="{% static 'css/' %}bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cd n.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" />
+        <link rel="stylesheet" href="{% static 'css/' %}style.css" />
+        <script type="text/javascript" class="init">
+            $(document).ready(function () {
+                $("#example").DataTable({
+                    paging: false,
+                    ordering: false,
+                    info: false,
+                    searching: false,
+                });
+            });
+        </script>
+    </head>
+    <body class="bg-light lh-sm">
+        <div class="container bg-light" style="width: 100%">
+            <div class="container datatable">
+                <div class="text-start">
+                    <h2 class="fw-bold mb-2 text-center py-4">Task Manager Report</h2>
+                    {% if request.session.user_username == "admin" %}
+                    <div class="text-center">
+                        <form action="report/print" method="post">
+                            {% csrf_token %}
+                            <button type="button" onClick="window.print()" type="submit" style="width: 100px" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-print"></i> Print</button>
+                        </form>
+                    </div>
+                    {% endif %}
+                    <p class="question">Date: {% now "jS F Y H:i" %}</p>
+                    <hr />
+                </div>
+                <table style="width: 100%">
+                    <tr>
+                        <td style="text-align: center">
+                            <p class="my-table-user header">task overview</p>
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="my-table-user question">The total number of tasks has been generated and tracked using the task_manager: {{ task_overview.total_tasks }}</td>
+                    </tr>
+                    <tr>
+                        <td class="my-table-user question">Total number of completed tasks: {{ task_overview.completed_tasks }}</td>
+                    </tr>
+                    <tr>
+                        <td class="my-table-user question">Total number of uncompleted tasks: {{ task_overview.uncompleted_tasks }}</td>
+                    </tr>
+                    <tr>
+                        <td class="my-table-user question">Total number of overdue tasks: {{ task_overview.overdue_tasks }}</td>
+                    </tr>
+                    <tr>
+                        <td class="my-table-user question">Total number of tasks that haven't been completed and that are overdue: {{ task_overview.uncompleted_and_overdue }}</td>
+                    </tr>
+                    <tr>
+                        <td class="my-table-user question">The percentage of tasks that are incomplete: {% percentage task_overview.uncompleted_tasks task_overview.total_tasks %}%</td>
+                    </tr>
+                    <tr>
+                        <td class="my-table-user question">The percentage of tasks that are overdue: {% percentage task_overview.overdue_tasks task_overview.total_tasks %}%</td>
+                    </tr>
+                </table>
+                <table style="width: 100%">
+                    <tr>
+                        <td style="text-align: center">
+                            <hr />
+                            <p class="my-table-user header">user overview</p>
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="my-table-user question">The total number of users registered with Task Manager: {{ user_count }}</td>
+                    </tr>
+                    <tr>
+                        <td class="my-table-user question">The total number of tasks that have been generated and tracked using Task Manager: {{ task_count}}</td>
+                    </tr>
+                </table>
+                <table id="example" class="hover compact display" style="width: 100%" data-page-length="25">
+                    <thead>
+                        <tr>
+                            <th class="mytable" style="text-align: right; vertical-align: bottom">#</th>
+                            <th class="mytable" style="text-align: right; vertical-align: bottom">Username</th>
+                            <th class="mytable" style="text-align: right; vertical-align: bottom">
+                                Number of tasks<br />
+                                assigned (%)
+                            </th>
+                            <th class="mytable" style="text-align: right; vertical-align: bottom">
+                                Number of tasks<br />
+                                completed (%)
+                            </th>
+                            <th class="mytable" style="text-align: right; vertical-align: bottom">
+                                Number of tasks<br />
+                                ongoing(%)
+                            </th>
+                            <th class="mytable" style="text-align: right; vertical-align: bottom">
+                                Number of tasks<br />
+                                uncompleted<br />and overdue (%)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in user_overview %}
+                        <tr>
+                            <td class="mytable">{% if not forloop.last %} {{ forloop.counter}} {% else %}<b>Total</b>{% endif %}</td>
+                            <td class="mytable">{% if not forloop.last %}{{ user.username }}{{ user.username }}{% endif %}</td>
+                            <td class="mytable">{% if forloop.last %}<b>{% percentage_string user.assigned task_count %}</b> {% else %} {% percentage_string user.assigned task_count %} {% endif %}</td>
+                            <td class="mytable">{% if forloop.last %}<b>{% percentage_string user.completed task_count %}</b> {% else %} {% percentage_string user.completed task_count %} {% endif %}</td>
+                            <td class="mytable">{% if forloop.last %}<b>{% percentage_string user.uncompleted task_count %}</b>{% else %} {% percentage_string user.uncompleted task_count %} {% endif %}</td>
+                            <td class="mytable">{% if forloop.last %}<b>{% percentage_string user.uncompleted_and_overdue task_count %}</b> {% else %} {% percentage_string user.uncompleted_and_overdue task_count %} {% endif %}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

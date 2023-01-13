@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %}
+<title>Task Manager > Quote [Testing]</title>
+{% endblock title %} 
+
+{% block content %}
+<script type="text/javascript" src="{% static 'js/' %}script.js"></script>
+
+<div class="d-flex justify-content-center" style="width: 100%">
+    <div class="d-inline p-2 text-center">
+        "
+        <div id="content" class="text-light">Content</div>
+        "
+        <div id="author" class="text-light">Author</div>
+        <div class="py-4"><button type="button" style="width: 100px" class="btn btn-primary d-inline justify-content-center" onClick="getQuote()" name="button" id="text">Click</button></div>
+    </div>
+</div>
+{% endblock content %}

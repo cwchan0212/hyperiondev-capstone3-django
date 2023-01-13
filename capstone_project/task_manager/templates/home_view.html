@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %}
+<title>Task Manager - Home</title>
+{% endblock title %} 
+
+{% block content %}
+<header class="bg-dark"></header>
+<script type="text/javascript" src="{% static 'js/' %}script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<section>
+    <div data-bss-parallax-bg="true" style="height: 500px; background-image: url(/static/images/notebook.jpg); background-position: center; background-size: cover">
+        <section class="py-4 py-xl-5">
+            <div class="container">
+                <div class="bg-light border rounded border-0 border-light d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5">
+                    <div class="pb-2 pb-lg-1 mb-2" style="max-width: 80%">
+                        <h2 class="fw-bold mb-2">Task Manager</h2>
+                        <i class="fas fa-quote-left"></i>
+                        <span class="mb-0 fs-5" id="content"> {% if Content %} {{ Content }} {% else %} Help you optimize your time and energy by keeping track of your tasks and goals {% endif %} </span>
+                        <i class="fas fa-quote-right"></i>
+                        <span class="mb-0 fs-5" id="author">
+                            {% if Author %}<i class="fa-solid fa-minus" style="margin: 0 10px 0 10px"></i> {{ Author } } {% endif %}
+                        </span>
+                    </div>
+                    <div class="my-2">
+                        <form action="/fetch" method="post">
+                            {% csrf_token %}<button class="btn btn-primary fs-5 py-2 px-4" type="submit" role="button"><i class="fa-solid fa-book"></i> Hey!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+{% endblock content %}

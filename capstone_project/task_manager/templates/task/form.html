@@ -1,0 +1,116 @@
+{%  extends 'base.html'  %}
+{% load static %}
+{% load task_manager_tags %}
+
+
+{% block title %}
+<title>Capstone Project 3 - Task Manager > Add Task</title>
+{% endblock title %}
+
+{% block content %}
+<style>
+label {
+    text-align: left;
+    color:black;
+}
+</style>
+<section class="text-bg-dark py-0">  
+    <div class="container pt-4 pt-xl-2">
+        <div class="row pt-2">
+            <div class="col-md-9 col-xl-6 text-center text-md-start mx-auto">
+                <section class="position-relative py-1 py-xl-1">
+                    <div class="container">
+                        <div class="row mb-2">
+                            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                                <h2 class="fw-bold mb-2 text-light">
+                                    {% if request.session.task_action == "add_task" %}
+                                    Add New 
+                                    {% else %} 
+                                    Edit 
+                                    {% endif %}Task</h2>
+
+                            </div>
+                            <div class="d-flex justify-content-center text-light">{{ Message }}</div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-6 col-xl-4" style="width: 500px;">
+                                <div class="card mb-5">
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4"><svg class="bi bi-pencil-square" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path>
+                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"></path>
+                                        </svg></div>
+                                            <form class="d-flex row" action="action" method="post">{% csrf_token %}
+                                              <div class="form-group row mb-3 mx-1">
+                                                <label for="task_title" class="form-control-sm col-sm-4 col-form-label">Task title:</label>
+                                                <div class="col-sm-8">
+                                                    <input type="hidden" id="task_action" name="task_action" value="{{ Action }}" />  
+                                                    <input type="hidden" id="task_id" name="task_id" value="{{ Task.task_id }}"  /> 
+                                                  <input type="text" class="form-control form-control-sm" id="task_title" maxlength="50" name="task_title" placeholder="Task Title..." value = "{{ Task.task_title  }}">
+                                                </div>
+                                              </div>
+                                              <div class="form-group row mb-3 mx-1">
+                                                <label for="task_user_id" class="form-control-sm col-sm-4 col-form-label">Assigned to: </label>
+                                                <div class="col-sm-8">
+                                                    <select class="form-control form-control-sm" id="task_user_id" name="task_user_id" required>
+                                                        <option>  </option>
+                                                        {% for user in User %}
+                                                            {% if Task.taskuser_id %}
+                                                        <option value="{{ user.user_id }}" {% if Task.taskuser_id == user.user_id %}selected{% endif %}>{{ user.user_username }}</option>
+                                                            {% else %}
+                                                        <option value="{{ user.user_id }}" {% if request.session.user_id == user.user_id %}selected{% endif %}>{{ user.user_username }}</option>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                              </div>
+                                              <div class="form-group row mb-3 mx-1">
+                                                <label for="task_assign_date" class="form-control-sm col-sm-4 col-form-label">Date assigned</label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control form-control-sm add-task-field" type="date" name="task_assign_date"
+                                                    value="{% now 'Y-m-d' %}" readonly disabled>
+                                                </div>
+                                              </div>
+                                              <div class="form-group row mb-3 mx-1">
+                                                {% date_format Task.task_due_date as task_due_date %}
+                                                <label for="task_due_date" class="form-control-sm col-sm-4 col-form-label">Due date</label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control form-control-sm" type="date" name="task_due_date"
+                                                    min="{% tomorrow %}"
+                                                    value="{% if task_due_date %}{{ task_due_date }}{% else %}{% tomorrow %}{% endif %}" required>
+                                                </div>
+                                              </div>
+                                              <div class="form-group row mb-3 mx-1">
+                                                <label for="task_completed" class="form-control-sm col-sm-4 col-form-label">Task Complete</label>
+                                                <div class="col-sm-8">
+                                                    <input class="form-control form-control-sm" type="text" name="task_completed"
+                                                    value="NO" readonly disabled>
+                                                </div>
+                                              </div>
+                                              <div class="form-group row mb-3 mx-1">
+                                                <label for="task_completed" class="form-control-sm col-sm-4 col-form-label">Task Description</label>
+                                                <div class="col-sm-8">
+                                                    <textarea class="form-control form-control-sm add-task-description" name="task_description"
+                                                    maxlength="100" placeholder="Task description..." cols="40" rows="5" required>{{ Task.task_description }}</textarea>
+                                                </div>
+                                              </div>
+                                              <div class="form-group row mb-3 mx-1 justify-content-center">
+                                                    <button type="submit" class="btn btn-outline-primary btn-sm" name="submit" value="{{ Action }}_save" style="width:100px">
+                                                        <i class="fa-solid fa-paper-plane"></i> Submit
+                                                    </button>
+                                              </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+<section>
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}

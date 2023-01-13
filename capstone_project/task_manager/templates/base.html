@@ -1,0 +1,100 @@
+{% load static %} 
+{% load task_manager_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
+        {% block title %}
+        <title>Task Manager</title>
+        {% endblock title %}
+
+        <link rel="icon" type="image/x-icon" href="{% static 'images/' %}favicon.ico" />
+        <link rel="stylesheet" href="{% static 'css/' %}Banner-Heading-Image-images.css" />
+        <link rel="stylesheet" href="{% static 'css/' %}bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" />
+        
+        {% block script %} 
+        {% endblock script %}
+
+    </head>
+    <body class="bg-{% if request.path == '/' %}dark{% else %}dark{% endif %}" bstyle="background: rgb(0,0,0);color: rgb(255,255,255);">
+        <nav class="navbar navbar-dark navbar-expand-md sticky-top py-3" id="mainNav">
+            <div class="container text-center">
+                <a class="navbar-brand d-flex align-items-center" href="/"
+                    ><span class="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person-workspace">
+                            <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
+                            <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z"></path></svg></span
+                    ><span>{% if "user_username" in request.session %} Hi, {{ request.session.user_username }}! {% else %} Eddy {% endif %}</span></a
+                ><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% if 'user_username' not in request.session %}#{% else %}/user{% endif %}">User</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% if 'user_username' not in request.session %}#{% else %}/task{% endif %}">Task</a></li>
+                        {% if request.session.user_username == "admin" %}
+                        <li class="nav-item"><a class="nav-link" href="/report">Report</a></li>
+                        {% endif %}
+                        <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
+                    </ul>
+                    {% if "user_username" not in request.session %}
+                    <a class="btn btn-primary shadow" role="button" href="/login">Log In</a>
+                    {% else %}
+                    <a class="btn btn-primary shadow" role="button" href="/logout">Log Out</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+        <header class="bg-dark"></header>
+        <main>
+            {% block content %} 
+            {% endblock content %}
+            
+      {% block footer %}
+            <section id="contact" class="py-2 py-xl-4 bg-dark">
+                <div class="container text-center text-light" style="border-radius: 0">
+                    <h1><a class="nav-link active" href="#home">Contact</a></h1>
+                    <p>Hope I can contribute my skills and qualities to your company. Let's work together...</p>
+                </div>
+            </section>
+        </main>
+        <footer class="py-2 bg-dark">
+            <div class="container text-light">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start d-md-flex justify-content-md-start align-items-md-center py-2">
+                        <div>
+                            <p class="fs-5 fw-bold mb-0">Crafted by Eddy Chan<br /></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-center align-items-center justify-content-md-end py-2">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item">
+                                <a class="text-light" href="https://www.linkedin.com/in/cwchanst/" target="_blank"><i class="fab fa-linkedin fs-1 me-2"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="text-light" href="https://github.com/cwchan0212" target="_blank"><i class="fab fa-github fs-1 me-2"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="text-light" href="mailto:cwchanst@gmail.com"><i class="far fa-envelope fs-1 me-2"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        {% endblock footer %}
+        <script src="{% static 'js/' %}bs-init.js"></script>
+        <script src="{% static 'js/' %}bootstrap.min.js"></script>
+        <script src="{% static 'js/' %}bold-and-dark.js"></script>
+    </body>
+</html>

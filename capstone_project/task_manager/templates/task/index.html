@@ -1,0 +1,129 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load task_manager_tags %} 
+
+{% block title %}
+<title>Capstone Project 3 - Task Manager > Task</title>
+<link rel="stylesheet" href="{% static 'css/' %}style.css" />
+{% endblock title %} 
+
+{% block script %}
+<script type="text/javascript" class="init">
+    $(document).ready(function () {
+        $("#example").DataTable({
+            ordering: false,
+            scrollY: "50vh",
+            scrollCollapse: true,
+            paging: false,
+        });
+    });
+</script>
+{% endblock script %} 
+
+{% block content %}
+<div class="container bg-light" style="width: 100%">
+    <div class="container">
+        <div class="text-start">
+            <h2 class="fw-bold mb-2 text-center py-4">List of Tasks</h2>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div>
+                Total of tasks: {{ Task | length }} 
+                {% if Message %}
+                <div class="d-flex justify-content-start text-danger">{{ Message }}</div>
+                {% endif %}
+                <div>
+                    <ul class="nav fs-6">
+                        <li class="nav-item" style="width: 50px">Note:</li>
+                        <li class="nav-item" style="width: 130px"><i class="fa-solid fa-bars-progress" alt="PROGRESS" title="PROGRESS"></i> Uncompleted</li>
+                        <li class="nav-item" style="width: 130px"><i class="fa-solid fa-check" alt="DONE" title="DONE"></i> Completed</li>
+                        <li class="nav-item" style="width: 130px"><i class="fa-solid fa-skull-crossbones" alt="OVERDUE" title="OVERDUE"></i> Overdue</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <form action="/task/action" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-primary btn-sm" style="width: 110px" name="task_action" value="add_task"><i class="fa-solid fa-file-circle-plus"></i> Add Task</button>
+                </form>
+                {% if request.session.view_type == "view_mine" %}
+                <form action="/task/view" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-success btn-sm" style="width: 110px" name="view_type" value="view_all"><i class="fa-solid fa-eye"></i> View All</button>
+                </form>
+                {% elif request.session.view_type == "view_all" %}
+                <form action="/task/view" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger btn-sm" style="width: 110px" name="view_type" value="view_mine"><i class="fa-solid fa-eye"></i> View Mine</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+        <hr />
+    </div>
+    <div class="container datatable">
+        <table id="example" class="hover compact display" style="width: 100%" data-page-length="25">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Task</th>
+                    <th>Assigned to</th>
+                    <th>Date assigned</th>
+                    <th>Due due</th>
+                    <th>Task completed</th>
+                    <th>Task description</th>
+                    {% if request.session.view_type == "view_mine" %}
+                    <th>Action</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in Task %}
+                <tr>
+                    <td>{{ task.task_id }}</td>
+                    <td>{{ task.task_title }}</td>
+                    <td>{{ task.taskuser.user_username }}</td>
+                    <td>{{ task.task_assign_date | date:"d/m/Y" }}</td>
+                    <td>{{ task.task_due_date | date:"d/m/Y" }}</td>
+                    <td class="task_status">
+                        {% if task.task_completed %}
+                        <i class="fa-solid fa-check" alt="DONE" title="DONE"></i>
+                        {% else %}
+                        <i class="fa-solid fa-bars-progress" alt="PROGRESS" title="PROGRESS"></i>
+                        {% endif %}
+                        <img src="{% static 'images/pixel.png' %}" />
+                        {% is_overdue task.task_due_date as status %} {% if status %}
+                        <i class="fa-solid fa-skull-crossbones" alt="OVERDUE" title="OVERDUE"></i>
+                        {% else %}
+                        <img src="{% static 'images/pixel.png' %}" />
+                        {% endif %}
+                    </td>
+                    <td>{{ task.task_description | wordwrap:50 |linebreaksbr }}</td>
+                    {% if request.session.view_type == "view_mine" %}
+                    <td>
+                        <div class="form-group d-print-inline">
+                            <form action="/task/action" method="post">
+                                {% csrf_token %} {% if not task.task_completed %} {% comment %} {% if not task.task_completed and not task.task_due_date|timesince > '1 min' %} {% endcomment %}
+                                <input type="hidden" id="task_id" name="task_id" value="{{ task.task_id }}" />
+                                <button type="submit" name="task_action" value="mark_complete" class="btn btn-outline-primary btn-sm">
+                                    <i class="fa-solid fa-square-check" alt="Mark Complete" title="Mark Complete"></i>
+                                </button>
+                                <button type="submit" name="task_action" value="edit_task" class="btn btn-outline-primary btn-sm">
+                                    <i class="fa-solid fa-pen-to-square" alt="Edit Task" title="Edit Task"></i>
+                                </button>
+                                {% endif %}
+                            </form>
+                        </div>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %} 
+
+{% block footer %} 
+{% endblock footer %}

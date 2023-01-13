@@ -1,0 +1,64 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+<title>Capstone Project 3 - Task Manager > User</title>
+{% endblock title %} 
+
+{% block script %}
+<script type="text/javascript" class="init">
+    $(document).ready(function () {
+        $("#example").DataTable({
+            ordering: false,
+            scrollY: "50vh",
+            scrollCollapse: true,
+            paging: false,
+        });
+    });
+</script>
+{% endblock script %} 
+
+{% block content %}
+<div class="container bg-light" style="width: 100%">
+    <div class="container">
+        <div class="text-start">
+            <h2 class="fw-bold mb-2 text-center py-4">List of Users</h2>
+        </div>
+        <div class="d-flex justify-content-between">
+            Total of users: {{ User | length }} 
+            {% if request.session.user_username == "admin" %}
+            <form action="user/register" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="task_action" value="add" />
+                <button type="submit" style="width: 120px" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-file-circle-plus"></i> Register User</button>
+            </form>
+            {% endif %}
+        </div>
+        <hr />
+    </div>
+    <div class="container datatable py-3">
+        <table id="example" class="hover compact display" style="width: 100%" data-page-length="10">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Created on</th>
+                    <th>Updated on</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in User %}
+                <tr>
+                    <td>{{ user.user_id }}</td>
+                    <td>{{ user.user_username }}</td>
+                    <td>{{ user.user_created_date | date:"d/m/Y H:i:s" }}</td>
+                    <td>{{ user.user_updated_date | date:"d/m/Y H:i:s" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %} 
+
+{% block footer %} 
+{% endblock footer %}

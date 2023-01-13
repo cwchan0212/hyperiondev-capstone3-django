@@ -1,0 +1,29 @@
+.mytable {
+    text-align: right;
+}
+
+.mytable,
+.my-table-user,
+.question {
+    font-size: 0.9em;
+    font-family: "Courier Prime", monospace;
+}
+
+.question {
+    font-weight: bold;
+}
+
+.header {
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.task_status {
+    text-align: center;
+}
+
+#example td {
+    vertical-align: top;
+}

@@ -12,7 +12,12 @@ This task management application was built using the **Django framework**. It al
 <i>3.1 The overview of Task Manager</i></p>
 
 
-<iframe width="560" height="315" src="https://github.com/cwchan0212/hyperiondev-capstone3-django/tree/2b37a531376782be89bf6aea03be61ff6a844f54/capstone_project/assets/video/preview.mp4" frameborder="0"></iframe>
+
+<video src="https://user-images.githubusercontent.com/7412075/221419047-423da968-de03-4a39-9bbf-85c1b2e57190.mp4
+" data-canonical-src="https://user-images.githubusercontent.com/7412075/221419047-423da968-de03-4a39-9bbf-85c1b2e57190.mp4
+" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit" style="max-height:600px;"> 
+
+   
 
 
 

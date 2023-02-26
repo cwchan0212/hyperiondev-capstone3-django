@@ -11,11 +11,8 @@ This task management application was built using the **Django framework**. It al
 <br>
 <i>3.1 The overview of Task Manager</i></p>
 
-
-<video src='capstone_project/assets/video/preview.mp4' />
-
-
-   
+<!-- <video src="https://user-images.githubusercontent.com/7412075/221419047-423da968-de03-4a39-9bbf-85c1b2e57190.mp4
+" poster="capstone_project/assets/images/01.png" controls muted="muted" class="d-block rounded-bottom-2 width-fit" width="600"> </video>   -->
 
 
 

@@ -10,7 +10,7 @@ This task management application was built using the **Django framework**. It al
 
 ### Preview
 
-<video src="./assets/vide/preview.mp4" width="600"></video>
+<video src="https://github.com/cwchan0212/hyperiondev-capstone3-django/blob/main/capstone_project/assets/video/preview.mp4" width="600"></video>
 
 
 ### Getting Started

@@ -11,7 +11,7 @@ This task management application was built using the **Django framework**. It al
 ### Preview
 
 <video width="600" controls>
-  <source src="./assets/video/preview.mp4" type="video/mp4">
+  <source src="./capstone_project/assets/video/preview.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 

@@ -15,7 +15,7 @@ This task management application was built using the **Django framework**. It al
 
 <video src="https://user-images.githubusercontent.com/7412075/221419047-423da968-de03-4a39-9bbf-85c1b2e57190.mp4
 " data-canonical-src="https://user-images.githubusercontent.com/7412075/221419047-423da968-de03-4a39-9bbf-85c1b2e57190.mp4
-"  muted="muted" class="d-block rounded-bottom-2 width-fit" style="width:600px;"> 
+" poster="" muted="muted" class="d-block rounded-bottom-2 width-fit" width="600"> 
 
    
 

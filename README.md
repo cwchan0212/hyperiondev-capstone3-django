@@ -1,4 +1,5 @@
-## Capstone Project 3 - Task Manager (Django) <a href="https://6gg9.short.gy/jRMugp" target="_blank">:arrow_right: Preview</a>  
+## Capstone Project 3 - Task Manager (Django) 
+<a href="https://6gg9.short.gy/jRMugp" target="_blank">:arrow_right: Preview</a>  
 
 ### Introduction 
 
@@ -6,6 +7,11 @@ This task management application was built using the **Django framework**. It al
 
 <p align="center"><img src="capstone_project/assets/images/01.png" width="600"><br>
 <i>3.1 The overview of Task Manager</i></p>
+
+### Preview
+
+<video src="./assets/vide/preview.mp4" width="600"></video>
+
 
 ### Getting Started
 

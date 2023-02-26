@@ -5,7 +5,6 @@
 
 This task management application was built using the **Django framework**. It allows users to log in, register new users, add tasks, and view a list of tasks. and generate reports on tasks. It also includes a feature that displays a random quote from Zen on the homepage.
 
-
 <p align="center">
   <img src="capstone_project/assets/images/01.png" width="600">
 <br>
@@ -13,8 +12,6 @@ This task management application was built using the **Django framework**. It al
 
 <!-- <video src="https://user-images.githubusercontent.com/7412075/221419047-423da968-de03-4a39-9bbf-85c1b2e57190.mp4
 " poster="capstone_project/assets/images/01.png" controls muted="muted" class="d-block rounded-bottom-2 width-fit" width="600"> </video>   -->
-
-
 
 ### Getting Started
 

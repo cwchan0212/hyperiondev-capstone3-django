@@ -6,11 +6,14 @@
 This task management application was built using the **Django framework**. It allows users to log in, register new users, add tasks, and view a list of tasks. and generate reports on tasks. It also includes a feature that displays a random quote from Zen on the homepage.
 
 
-
-  <video src="./capstone_project/assets/video/preview.mp4" data-canonical-src="./capstone_project/assets/video/preview.mp4" width="600" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit" style="max-height:640px;"></video>
+<p align="center">
+  <img src="capstone_project/assets/images/01.png" width="600">
 <br>
-<p align="center"><i>3.1 The overview of Task Manager</i></p>
-<!-- <img src="capstone_project/assets/images/01.png" width="600"> -->
+<i>3.1 The overview of Task Manager</i></p>
+
+
+
+<video src="https://github.com/cwchan0212/hyperiondev-capstone3-django/blob/main/capstone_project/assets/video/preview.mp4" data-canonical-src="https://github.com/cwchan0212/hyperiondev-capstone3-django/blob/main/capstone_project/assets/video/preview.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit" style="max-width:600px;">
 
 
   <!-- <video src="https://user-images.githubusercontent.com/169707/126715420-991ad821-9ac8-4b66-b79e-e0966e0f3a89.mp4" data-canonical-src="https://user-images.githubusercontent.com/169707/126715420-991ad821-9ac8-4b66-b79e-e0966e0f3a89.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit" style="max-height:640px;"> -->

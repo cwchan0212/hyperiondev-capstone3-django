@@ -1,6 +1,8 @@
 ## Capstone Project 3 - Task Manager (Django) 
 <a href="https://6gg9.short.gy/jRMugp" target="_blank">:arrow_right: Preview</a>  
 
+[hyperiondev-capstone3-django](https://user-images.githubusercontent.com/7412075/228989284-d8187c70-841b-45fd-b57a-fadc4eed63b9.mp4)
+
 ### Introduction 
 
 This task management application was built using the **Django framework**. It allows users to log in, register new users, add tasks, and view a list of tasks. and generate reports on tasks. It also includes a feature that displays a random quote from Zen on the homepage.
